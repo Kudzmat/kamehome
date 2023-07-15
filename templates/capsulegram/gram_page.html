@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <br>
+    <h2>Capsule Gram Moments</h2>
+    <br>
+    {% if user.is_authenticated %}
+    <h6>
+        <a href="{% url 'capsulegram:upload' %}">Upload To Capsule Gram</a>
+    </h6>
+    <br>
+    <hr>
+    {% else %}
+    <h6><a href="{% url 'login:login' %}">Sign In</a> or <a href="{% url 'login:signup' %}">Create an Account</a> to Upload Pictures To Capsule Gram</h6>
+    {% endif %}
+
+    {% if posts.count > 0 %}
+    <div class="row">
+        {% for post in posts %}
+    <div class="col-sm-4">
+            <img src="/media/{{ post.image }}" width="200px">
+        <figcaption><strong>{{ post.caption }}</strong></figcaption>
+        <h6>Posted By: {{ post.owner }}</h6>
+        <br>
+    </div>
+        {% endfor %}
+</div>
+    {% else %}
+        <h2>No Posts On Capusle Gram Yet!</h2>
+    </div>
+{% endif %}
+{% endblock %}

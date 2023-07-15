@@ -1,0 +1,92 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Kame House
+{% endblock %}
+{% block main %}
+<div class="container">
+  <!-- carousel -->
+	  <section>
+		  <div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <img src="{% static 'images/banners/dbz1.png' %}"  class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="background-color: white;">
+        <h5 style="color: #7E354D">SEARCH FOR ALBUMS</h5>
+        <p style="color: #7E354D">Search for an album and listen to previews of the album tracklist.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/banners/dbz2.png' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="background-color: white;">
+        <h5 style="color: #7E354D">SEARCH FOR ARTISTS</h5>
+        <p style="color: #7E354D">Use the search feature to look up an artist and view their top projects.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/banners/dbz3.png' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="background-color: white;">
+        <h5 style="color: #7E354D">Enjoy A PLAYLIST</h5>
+        <p style="color: #7E354D">Visit the playlist corner and enjoy the various playlist options..</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+      </section>
+    <!-- end carousel -->
+
+<!-- ======= About Us Section ======= -->
+  <br>
+  <hr>
+    <section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h2 <i>Welcome To KameHouse</i></h2>
+            <br>
+            <p>Endless activities that can help you exercise your creative muscle and express yourself in novel and fulfilling ways. It doesn’t have to be painting, singing or dancing. Tending to your garden is a creative act. So is building a new bookshelf or learning a new language. It is important to pick an activity or project that captivates all of your attention to extract maximum benefits.</p>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <img src="{% static 'images/about/about.png' %}" style="height: 500px; width: 600px" alt="collage of dragonball images">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+  <!-- Image Collage Section -->
+  <br>
+  <hr>
+  <section class="container my-5">
+    <h2><i>Be a Part of Capsule Gram!</i></h2>
+    <br>
+    <p>Capsule Gram is the revolutionary social platform brought to you by Capsule Corporation. Experience a new dimension of connection and expression as you capture the essence of your life in moments. With Capsule Gram, every photo becomes a memory encapsulated in time, ready to be shared with friends, family, and the world. </p>
+    <br>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <img src="{% static 'images/gram/gram1.JPG' %}" class="img-fluid" alt="Image 1">
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <img src="{% static 'images/gram/gram2.JPG' %}" class="img-fluid" alt="Image 2">
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <img src="{% static 'images/gram/gram3.JPG' %}" class="img-fluid" alt="Image 3">
+      </div>
+      <!-- Add more image collage items as needed -->
+    </div>
+  </section>
+{% endblock %}
+</div>
