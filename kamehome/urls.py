@@ -9,7 +9,8 @@ urlpatterns = [
     path("", views.index, name='index'),
     path("login/", include('login.urls'),),
     path("profiles/", include('myprofile.urls')),
-    path("capsule-gram/", include('capsulegram.urls'))
+    path("capsule-gram/", include('capsulegram.urls')),
+    path("time-machine", include('timemachine.urls'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
