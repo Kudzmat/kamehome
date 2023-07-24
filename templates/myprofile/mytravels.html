@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+My Travels
+{% endblock %}
+
+{% block main %}
+<div class="container">
+        <img src="/media/{{ user.user_profile.profile_pic }}" class="rounded-circle" width="120px">
+    <h3>{{ user.username }}</h3>
+    <i><h6>{{ user.first_name }} {{ user.last_name }}</h6></i>
+    <hr>
+    <br>
+    <i><h2>Your Travels</h2></i>
+    <div data-aos="fade-up">
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+              {% if user.post_author %}
+            {% for story in user.post_author.all %}
+            <br>
+            <h6>{{ story.dragon_title }}
+                <a href="{% url 'myprofile:read_story' slug=story.slug %}">Read More</a>
+            </h6>
+              {% endfor %}
+            <hr>
+              {% else %}
+              <h6>No Time Travel Stories Yet</h6>
+              {% endif %}
+          </div>
+
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <img  src="{% static 'images/travel/relive2.png' %}" style="width: 100%" alt="collage of dragonball images">
+          </div>
+    <hr>
+</div>
+
+    </div>
+</div>
+{% endblock %}

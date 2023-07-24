@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block title%}
+My Posts
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h2>Capsule Gram Profile</h2>
+    <img src="/media/{{ user.user_profile.profile_pic }}" class="rounded-circle" width="120px">
+    <h3>{{ user.username }}</h3>
+    <i><h6>{{ user.first_name }} {{ user.last_name }}</h6></i>
+    <hr>
+    <br>
+     <div class="row">
+         <h3>{{ user.post_owner.count }} Posts</h3>
+         {% for post in user.post_owner.all %}
+         <div class="col-sm-4">
+             <img src="/media/{{ post.image }}" width="200px">
+        <figcaption><strong>{{ post.caption }}</strong></figcaption>
+         </div>
+         {% endfor %}
+     </div>
+    <hr>
+
+</div>
+{% endblock %}

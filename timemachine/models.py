@@ -3,7 +3,7 @@ from login.models import UserProfile
 from django.contrib.auth.models import User
 
 
-# when users time travel they will get a story description and two images to go along with it
+# when users time travel they will get a story description
 class TimelineStory(models.Model):
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='post_author')
     description = models.TextField(max_length=3000, blank=False)

@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
+from timemachine.models import TimelineStory
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from login.forms import *
@@ -11,7 +13,26 @@ from .forms import *
 @login_required
 def profile_page(request):
     context = {}
+
     return render(request, 'myprofile/profile.html', context=context)  # takes you to profile page
+
+
+# for a user to view their capsule gram posts
+class MyPosts(TemplateView, LoginRequiredMixin):
+    template_name = 'myprofile/myposts.html'
+
+
+class MyStories(TemplateView, LoginRequiredMixin):
+    template_name = 'myprofile/mytravels.html'
+
+
+# read a time travel story
+def read_story(request, slug):
+    story = TimelineStory.objects.get(slug=slug)
+
+    context = {'story': story}
+
+    return render('myprofile/stories.html', context=context)
 
 
 # to allow user to edit their profile information
